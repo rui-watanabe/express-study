@@ -112,6 +112,12 @@ scalingButton.click(function () {
     height: '100pt'
   }, 2000);
 });
+var loadavg = jquery__WEBPACK_IMPORTED_MODULE_1___default()('#loadavg');
+setInterval(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get('/server-status', {}, function (data) {
+    loadavg.text(data.loadavg.toString());
+  });
+}, 10);
 
 /***/ }),
 /* 1 */

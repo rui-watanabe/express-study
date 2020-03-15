@@ -13,3 +13,11 @@ scalingButton.click(() => {
   block.animate({ width: '200pt', height: '200pt' }, 2000);
   block.animate({ width: '100pt', height: '100pt' }, 2000);
 });
+
+const loadavg = $('#loadavg');
+
+setInterval(() => {
+  $.get('/server-status', {}, (data) => {
+    loadavg.text(data.loadavg.toString());
+  });
+}, 10);
